@@ -5,7 +5,7 @@ import kotlin.Int.Companion.MIN_VALUE
 class MaxSubArray{
 
     fun getMaxCenter(array:IntArray): Triple<Int, Int, Int>{
-        val mid = array.size/2-1
+        val mid = array.size/2
         var maxSum = MIN_VALUE
         var sum = 0
         var leftIndex = 0
@@ -35,6 +35,26 @@ class MaxSubArray{
             rightMax = sum;
         }
         return Triple(leftIndex,rightIndex,maxSum+rightMax)
+    }
+
+    fun getMaxSubArray(input: IntArray) : Triple<Int, Int, Int> {
+        if(input.size <= 1){
+            return Triple(0,0,input.get(0))
+        } else {
+            val leftTriple = getMaxSubArray(input.copyOfRange(0,(input.size/2)))
+            val rightTriple = getMaxSubArray(input.copyOfRange(input.size/2,input.size))
+            val centerTriple = getMaxCenter(input)
+            return if(leftTriple.third >= centerTriple.third && leftTriple.third >= rightTriple.third){
+                leftTriple
+            }else if(rightTriple.third >= leftTriple.third && rightTriple.third >= centerTriple.third){
+                rightTriple
+            }else {
+                centerTriple
+            }
+
+        }
+
+
     }
 
 }
