@@ -46,25 +46,8 @@ class MaxSubArrayTest {
         assertEquals(3,triple.second)
         assertEquals(-2,triple.third)
     }
-    @Test
-    fun maxSubArrayTest1(){
-        val testClass = MaxSubArray()
-        val triple = testClass.getMaxSubArray(intArrayOf(-1,-1,-1,-1,-1))
-        assertEquals(0,triple.first)
-        assertEquals(0,triple.second)
-        assertEquals(-1,triple.third)
 
-    }
-
-    @Test
-    fun maxSubArrayTest2(){
-        val x = MaxSubArray()
-        val triple =  x.getMaxSubArray(intArrayOf(1,1,1,1,1))
-        assertEquals(0,triple.first)
-        assertEquals(4,triple.second)
-        assertEquals(5,triple.third)
-    }
-
+    //Tests with even number of elements in array maxSubArrayTest3 to
     @Test
     fun maxSubArrayTest3(){
         val x = MaxSubArray()
@@ -83,6 +66,51 @@ class MaxSubArrayTest {
     }
 
     @Test
+    fun maxSubArrayTestEvenAllPositiveElements(){
+        val x = MaxSubArray()
+        val triple =  x.getMaxSubArray(intArrayOf(1,1,1,1))
+        assertEquals(0,triple.first)
+        assertEquals(3,triple.second)
+        assertEquals(4,triple.third)
+    }
+
+    @Test
+    fun maxSubArrayTestEvenAllNegativeElements(){
+        val x = MaxSubArray()
+        val triple =  x.getMaxSubArray(intArrayOf(-1,-1,-1,-1))
+        assertEquals(0,triple.first)
+        assertEquals(0,triple.second)
+        assertEquals(-1,triple.third)
+    }
+    @Test
+    fun maxSubArrayTestEvenMidMax(){
+        val x = MaxSubArray()
+        val triple =  x.getMaxSubArray(intArrayOf(-1,1,1,-1))
+        assertEquals(1,triple.first)
+        assertEquals(2,triple.second)
+        assertEquals(2,triple.third)
+    }
+
+    @Test
+    fun maxSubArrayTestEvenLeftMax(){
+        val x = MaxSubArray()
+        val triple =  x.getMaxSubArray(intArrayOf(1,-1,1,-1))
+        assertEquals(0,triple.first)
+        assertEquals(0,triple.second)
+        assertEquals(1,triple.third)
+    }
+
+    @Test
+    fun maxSubArrayTestEvenAlternatePositives(){
+        val x = MaxSubArray()
+        val triple =  x.getMaxSubArray(intArrayOf(-1,1,-1,1))
+        assertEquals(1,triple.first)
+        assertEquals(1,triple.second)
+        assertEquals(1,triple.third)
+    }
+
+
+    @Test
     fun maxSubArrayTest5(){
         val x = MaxSubArray()
         val triple =  x.getMaxSubArray(intArrayOf(1,1,1,1,-1))
@@ -99,6 +127,34 @@ class MaxSubArrayTest {
         assertEquals(0,triple.first)
         assertEquals(2,triple.second)
         assertEquals(3,triple.third)
+    }
+
+    @Test
+    fun maxSubArrayTest7(){
+        val x = MaxSubArray()
+        val triple =  x.getMaxSubArray(intArrayOf(-1,-1,-1,1,1))
+        assertEquals(0,triple.first)
+        assertEquals(1,triple.second)
+        assertEquals(2,triple.third)
+    }
+
+    @Test
+    fun maxSubArrayTest1(){
+        val testClass = MaxSubArray()
+        val triple = testClass.getMaxSubArray(intArrayOf(-1,-1,-1,-1,-1))
+        assertEquals(0,triple.first)
+        assertEquals(0,triple.second)
+        assertEquals(-1,triple.third)
+
+    }
+
+    @Test
+    fun maxSubArrayTest2(){
+        val x = MaxSubArray()
+        val triple =  x.getMaxSubArray(intArrayOf(1,1,1,1,1))
+        assertEquals(0,triple.first)
+        assertEquals(4,triple.second)
+        assertEquals(5,triple.third)
     }
 
 }
